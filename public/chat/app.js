@@ -1,0 +1,7 @@
+(() => {
+  const history = []; const chat = document.querySelector('#chat'); const form = document.querySelector('#form'); const input = document.querySelector('#message');
+  function add(role, content) { const el = document.createElement('div'); el.className = `bubble ${role}`; el.textContent = content; chat.appendChild(el); chat.scrollTop = chat.scrollHeight; }
+  form.addEventListener('submit', async (event) => { event.preventDefault(); const message = input.value.trim(); if (!message) return; add('user', message); history.push({ role: 'user', content: message }); input.value = ''; const button = form.querySelector('button'); button.disabled = true;
+    try { const response = await fetch('/api/chat', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ message, history: history.slice(0, -1), provider: document.querySelector('#provider').value, model: document.querySelector('#model').value.trim() || undefined }) }); const data = await response.json(); const reply = data.reply || data.error || 'ไม่ได้รับคำตอบ'; add('assistant', reply); history.push({ role: 'assistant', content: reply }); } catch (error) { add('assistant', `เชื่อมต่อไม่ได้: ${error.message}`); } finally { button.disabled = false; input.focus(); }
+  });
+})();
