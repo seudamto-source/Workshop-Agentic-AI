@@ -1,5 +1,5 @@
 import type { Env } from '../../env';
-import { errorJson, json } from '../../lib/http';
+import { errorJson, json } from '../lib/http';
 import { runGeminiConversation } from './providers/gemini';
 import { runOpenAiCompatConversation } from './providers/openai-compat';
 import type { ChatMessage, ChatProvider, ChatTurnResult, McpTool } from './types';
