@@ -2,7 +2,7 @@
   "name": "ai-desk-cloudflare-worker",
   "version": "0.1.0",
   "private": true,
-  "description": "AI Desk — Chat (Gemini/OpenAI/OpenAI-compatible gateway) + key settings + MCP servers (utils, Google Calendar, text-to-SQL) + MCP client + Telegram, all in one Cloudflare Worker",
+  "description": "PornpitakAI Pass — Chat (Gemini/OpenAI/OpenAI-compatible gateway) + key settings + MCP servers (utils, Google Calendar, text-to-SQL) + MCP client + Telegram, all in one Cloudflare Worker",
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
